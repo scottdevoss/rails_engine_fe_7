@@ -1,7 +1,7 @@
 <h1><%= "Merchant #{@merchant_id}" %></h1>
 
 <h2>Items:</h2>
-<% @items.each do |item| %>
-  <%= item[:attributes][:name] %><br>
+<% @facade.items.each do |item| %>
+  <%= item.name %><br>
 <% end %>
 
