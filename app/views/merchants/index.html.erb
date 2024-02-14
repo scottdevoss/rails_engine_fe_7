@@ -1,2 +1,5 @@
 <h1>Merchants</h1>
 
+<% @merchants.each do |merchant| %>
+  <%= link_to merchant[:attributes][:name] %><br>
+<% end %>

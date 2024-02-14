@@ -8,7 +8,7 @@ RSpec.describe "Merchants" do
   # I should be on page '/merchants/:id'
   # And I should see a list of items that merchant sells.
 
-  it "should see a list of merchants by name" do
+  it "should see a list of merchants by name as links" do
     visit "/merchants"
 
     expect(page).to have_link("Schroeder-Jerde")
@@ -16,7 +16,16 @@ RSpec.describe "Merchants" do
     expect(page).to have_link("Willms and Sons")
   end
 
-  xit "When I click the merchants name I should be on page '/merchants/:id' and I should see a list of items that merchant sells" do
+  it "When I click the merchants name I should be on page '/merchants/:id' and I should see a list of items that merchant sells" do
+    visit "/merchants"
 
+    click_link("Schroeder-Jerde")
+
+    expect(current_path).to eq("/merchants/1")
+
+    expect(page).to have_content("Item Nemo Facere")
+    expect(page).to have_content("Item Expedita Aliquam")
+    expect(page).to have_content("Item Provident At")
+    expect(page).to have_content("Item Expedita Fuga")
   end
 end
