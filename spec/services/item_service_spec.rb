@@ -3,7 +3,7 @@ require "rails_helper"
 describe ItemService do
   context "class methods" do
     context "#items_by_merchant" do
-      it "returns item data" do
+      it "returns item data", :vcr do
         items = ItemService.new.items_by_merchant("1")
 
         expect(items).to be_a Hash

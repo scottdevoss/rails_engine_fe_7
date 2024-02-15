@@ -3,7 +3,7 @@ require "rails_helper"
 describe MerchantService do
   context "class methods" do
     context "#merchants" do
-      it "returns merchant data" do
+      it "returns merchant data", :vcr do
         merchants = MerchantService.new.merchants
 
         expect(merchants).to be_a Hash
